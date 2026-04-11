@@ -62,6 +62,7 @@
             NameTextBox.Name = "NameTextBox";
             NameTextBox.Size = new Size(180, 23);
             NameTextBox.TabIndex = 0;
+            NameTextBox.TextChanged += this.NameTextBox_TextChanged;
             // 
             // NameLabel
             // 
@@ -102,6 +103,7 @@
             GradeTextBox.Name = "GradeTextBox";
             GradeTextBox.Size = new Size(23, 23);
             GradeTextBox.TabIndex = 4;
+            GradeTextBox.TextChanged += this.GradeTextBox_TextChanged;
             // 
             // AgeLabel
             // 
@@ -118,6 +120,7 @@
             AgeTextBox.Name = "AgeTextBox";
             AgeTextBox.Size = new Size(23, 23);
             AgeTextBox.TabIndex = 2;
+            AgeTextBox.TextChanged += this.AgeTextBox_TextChanged;
             // 
             // MathProblemGroupBox
             // 
@@ -149,6 +152,7 @@
             StudentAnswerTextBox.Name = "StudentAnswerTextBox";
             StudentAnswerTextBox.Size = new Size(132, 23);
             StudentAnswerTextBox.TabIndex = 4;
+            StudentAnswerTextBox.TextChanged += this.StudentAnswerTextBox_TextChanged;
             // 
             // SecondNumberLabel
             // 
@@ -264,6 +268,7 @@
             ClearButton.TabIndex = 9;
             ClearButton.Text = "Clear";
             ClearButton.UseVisualStyleBackColor = true;
+            ClearButton.Click += ClearButton_Click;
             // 
             // SummaryButton
             // 
