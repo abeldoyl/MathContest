@@ -36,17 +36,21 @@
             AgeLabel = new Label();
             AgeTextBox = new TextBox();
             MathProblemGroupBox = new GroupBox();
-            FirstNumberLabel = new Label();
-            textBox3 = new TextBox();
-            SecondNumberLabel = new Label();
-            SecondNumberTextBox = new TextBox();
-            MathTypeGroupBox = new GroupBox();
             StudentAnswerLabel = new Label();
             textBox1 = new TextBox();
-            AddRadioButton = new RadioButton();
-            SubtractRadioButton = new RadioButton();
-            MultiplyRadioButton = new RadioButton();
+            SecondNumberLabel = new Label();
+            SecondNumberTextBox = new TextBox();
+            FirstNumberLabel = new Label();
+            textBox3 = new TextBox();
+            MathTypeGroupBox = new GroupBox();
             DivideRadioButton = new RadioButton();
+            MultiplyRadioButton = new RadioButton();
+            SubtractRadioButton = new RadioButton();
+            AddRadioButton = new RadioButton();
+            SubmitButton = new Button();
+            ClearButton = new Button();
+            SummaryButton = new Button();
+            ExitButton = new Button();
             StudentInformationGroupBox.SuspendLayout();
             MathProblemGroupBox.SuspendLayout();
             MathTypeGroupBox.SuspendLayout();
@@ -130,21 +134,21 @@
             MathProblemGroupBox.TabStop = false;
             MathProblemGroupBox.Text = "Current Math Problem";
             // 
-            // FirstNumberLabel
+            // StudentAnswerLabel
             // 
-            FirstNumberLabel.AutoSize = true;
-            FirstNumberLabel.Location = new Point(6, 27);
-            FirstNumberLabel.Name = "FirstNumberLabel";
-            FirstNumberLabel.Size = new Size(76, 15);
-            FirstNumberLabel.TabIndex = 1;
-            FirstNumberLabel.Text = "First Number";
+            StudentAnswerLabel.AutoSize = true;
+            StudentAnswerLabel.Location = new Point(6, 143);
+            StudentAnswerLabel.Name = "StudentAnswerLabel";
+            StudentAnswerLabel.Size = new Size(90, 15);
+            StudentAnswerLabel.TabIndex = 5;
+            StudentAnswerLabel.Text = "Student Answer";
             // 
-            // textBox3
+            // textBox1
             // 
-            textBox3.Location = new Point(6, 45);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(132, 23);
-            textBox3.TabIndex = 0;
+            textBox1.Location = new Point(6, 161);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(132, 23);
+            textBox1.TabIndex = 4;
             // 
             // SecondNumberLabel
             // 
@@ -162,12 +166,28 @@
             SecondNumberTextBox.Size = new Size(132, 23);
             SecondNumberTextBox.TabIndex = 2;
             // 
+            // FirstNumberLabel
+            // 
+            FirstNumberLabel.AutoSize = true;
+            FirstNumberLabel.Location = new Point(6, 27);
+            FirstNumberLabel.Name = "FirstNumberLabel";
+            FirstNumberLabel.Size = new Size(76, 15);
+            FirstNumberLabel.TabIndex = 1;
+            FirstNumberLabel.Text = "First Number";
+            // 
+            // textBox3
+            // 
+            textBox3.Location = new Point(6, 45);
+            textBox3.Name = "textBox3";
+            textBox3.Size = new Size(132, 23);
+            textBox3.TabIndex = 0;
+            // 
             // MathTypeGroupBox
             // 
             MathTypeGroupBox.Controls.Add(DivideRadioButton);
+            MathTypeGroupBox.Controls.Add(AddRadioButton);
             MathTypeGroupBox.Controls.Add(MultiplyRadioButton);
             MathTypeGroupBox.Controls.Add(SubtractRadioButton);
-            MathTypeGroupBox.Controls.Add(AddRadioButton);
             MathTypeGroupBox.Location = new Point(239, 133);
             MathTypeGroupBox.Name = "MathTypeGroupBox";
             MathTypeGroupBox.Size = new Size(221, 203);
@@ -175,71 +195,103 @@
             MathTypeGroupBox.TabStop = false;
             MathTypeGroupBox.Text = "Math Problem Type";
             // 
-            // StudentAnswerLabel
+            // DivideRadioButton
             // 
-            StudentAnswerLabel.AutoSize = true;
-            StudentAnswerLabel.Location = new Point(6, 143);
-            StudentAnswerLabel.Name = "StudentAnswerLabel";
-            StudentAnswerLabel.Size = new Size(90, 15);
-            StudentAnswerLabel.TabIndex = 5;
-            StudentAnswerLabel.Text = "Student Answer";
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(6, 161);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(132, 23);
-            textBox1.TabIndex = 4;
-            // 
-            // AddRadioButton
-            // 
-            AddRadioButton.AutoSize = true;
-            AddRadioButton.Location = new Point(59, 45);
-            AddRadioButton.Name = "AddRadioButton";
-            AddRadioButton.Size = new Size(47, 19);
-            AddRadioButton.TabIndex = 0;
-            AddRadioButton.TabStop = true;
-            AddRadioButton.Text = "Add";
-            AddRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // SubtractRadioButton
-            // 
-            SubtractRadioButton.AutoSize = true;
-            SubtractRadioButton.Location = new Point(59, 70);
-            SubtractRadioButton.Name = "SubtractRadioButton";
-            SubtractRadioButton.Size = new Size(69, 19);
-            SubtractRadioButton.TabIndex = 1;
-            SubtractRadioButton.TabStop = true;
-            SubtractRadioButton.Text = "Subtract";
-            SubtractRadioButton.UseVisualStyleBackColor = true;
+            DivideRadioButton.AutoSize = true;
+            DivideRadioButton.Font = new Font("Segoe UI", 12F);
+            DivideRadioButton.Location = new Point(68, 143);
+            DivideRadioButton.Name = "DivideRadioButton";
+            DivideRadioButton.Size = new Size(72, 25);
+            DivideRadioButton.TabIndex = 3;
+            DivideRadioButton.TabStop = true;
+            DivideRadioButton.Text = "Divide";
+            DivideRadioButton.UseVisualStyleBackColor = true;
             // 
             // MultiplyRadioButton
             // 
             MultiplyRadioButton.AutoSize = true;
-            MultiplyRadioButton.Location = new Point(59, 95);
+            MultiplyRadioButton.Font = new Font("Segoe UI", 12F);
+            MultiplyRadioButton.Location = new Point(68, 112);
             MultiplyRadioButton.Name = "MultiplyRadioButton";
-            MultiplyRadioButton.Size = new Size(69, 19);
+            MultiplyRadioButton.Size = new Size(85, 25);
             MultiplyRadioButton.TabIndex = 2;
             MultiplyRadioButton.TabStop = true;
             MultiplyRadioButton.Text = "Multiply";
             MultiplyRadioButton.UseVisualStyleBackColor = true;
             // 
-            // DivideRadioButton
+            // SubtractRadioButton
             // 
-            DivideRadioButton.AutoSize = true;
-            DivideRadioButton.Location = new Point(59, 120);
-            DivideRadioButton.Name = "DivideRadioButton";
-            DivideRadioButton.Size = new Size(58, 19);
-            DivideRadioButton.TabIndex = 3;
-            DivideRadioButton.TabStop = true;
-            DivideRadioButton.Text = "Divide";
-            DivideRadioButton.UseVisualStyleBackColor = true;
+            SubtractRadioButton.AutoSize = true;
+            SubtractRadioButton.Font = new Font("Segoe UI", 12F);
+            SubtractRadioButton.Location = new Point(68, 81);
+            SubtractRadioButton.Name = "SubtractRadioButton";
+            SubtractRadioButton.Size = new Size(86, 25);
+            SubtractRadioButton.TabIndex = 1;
+            SubtractRadioButton.TabStop = true;
+            SubtractRadioButton.Text = "Subtract";
+            SubtractRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // AddRadioButton
+            // 
+            AddRadioButton.AutoSize = true;
+            AddRadioButton.Font = new Font("Segoe UI", 12F);
+            AddRadioButton.Location = new Point(68, 50);
+            AddRadioButton.Name = "AddRadioButton";
+            AddRadioButton.Size = new Size(56, 25);
+            AddRadioButton.TabIndex = 0;
+            AddRadioButton.TabStop = true;
+            AddRadioButton.Text = "Add";
+            AddRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // SubmitButton
+            // 
+            SubmitButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SubmitButton.Location = new Point(588, 48);
+            SubmitButton.Name = "SubmitButton";
+            SubmitButton.Size = new Size(200, 67);
+            SubmitButton.TabIndex = 8;
+            SubmitButton.Text = "Submit";
+            SubmitButton.UseVisualStyleBackColor = true;
+            // 
+            // ClearButton
+            // 
+            ClearButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ClearButton.Location = new Point(588, 121);
+            ClearButton.Name = "ClearButton";
+            ClearButton.Size = new Size(200, 67);
+            ClearButton.TabIndex = 9;
+            ClearButton.Text = "Clear";
+            ClearButton.UseVisualStyleBackColor = true;
+            // 
+            // SummaryButton
+            // 
+            SummaryButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            SummaryButton.Location = new Point(588, 194);
+            SummaryButton.Name = "SummaryButton";
+            SummaryButton.Size = new Size(200, 67);
+            SummaryButton.TabIndex = 10;
+            SummaryButton.Text = "Summary";
+            SummaryButton.UseVisualStyleBackColor = true;
+            // 
+            // ExitButton
+            // 
+            ExitButton.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            ExitButton.Location = new Point(588, 267);
+            ExitButton.Name = "ExitButton";
+            ExitButton.Size = new Size(200, 67);
+            ExitButton.TabIndex = 11;
+            ExitButton.Text = "Exit";
+            ExitButton.UseVisualStyleBackColor = true;
             // 
             // MathContestForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(ExitButton);
+            Controls.Add(SummaryButton);
+            Controls.Add(ClearButton);
+            Controls.Add(SubmitButton);
             Controls.Add(MathTypeGroupBox);
             Controls.Add(MathProblemGroupBox);
             Controls.Add(StudentInformationGroupBox);
@@ -276,5 +328,9 @@
         private RadioButton MultiplyRadioButton;
         private RadioButton SubtractRadioButton;
         private RadioButton AddRadioButton;
+        private Button SubmitButton;
+        private Button ClearButton;
+        private Button SummaryButton;
+        private Button ExitButton;
     }
 }
