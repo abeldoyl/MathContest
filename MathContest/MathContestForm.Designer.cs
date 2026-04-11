@@ -163,6 +163,7 @@
             // 
             SecondNumberTextBox.Location = new Point(6, 102);
             SecondNumberTextBox.Name = "SecondNumberTextBox";
+            SecondNumberTextBox.ReadOnly = true;
             SecondNumberTextBox.Size = new Size(132, 23);
             SecondNumberTextBox.TabIndex = 2;
             // 
@@ -179,6 +180,7 @@
             // 
             textBox3.Location = new Point(6, 45);
             textBox3.Name = "textBox3";
+            textBox3.ReadOnly = true;
             textBox3.Size = new Size(132, 23);
             textBox3.TabIndex = 0;
             // 
