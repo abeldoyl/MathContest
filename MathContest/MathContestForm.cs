@@ -1,3 +1,10 @@
+/*
+Abel Doyle
+RCET 2265
+Spring Semester 2026
+MathContest
+https://github.com/abeldoyl/MathContest.git
+*/
 namespace MathContest
 {
     public partial class MathContestForm : Form
@@ -11,6 +18,7 @@ namespace MathContest
         int submitNumber = 0;
         int correctAnswers = 0;
         int correctNumber = 0;
+        
         void SetDefaults()
         {
             NameTextBox.Text = "";
