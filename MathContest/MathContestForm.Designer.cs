@@ -62,7 +62,7 @@
             NameTextBox.Name = "NameTextBox";
             NameTextBox.Size = new Size(180, 23);
             NameTextBox.TabIndex = 0;
-            NameTextBox.TextChanged += this.NameTextBox_TextChanged;
+            NameTextBox.TextChanged += NameTextBox_TextChanged;
             // 
             // NameLabel
             // 
@@ -103,7 +103,7 @@
             GradeTextBox.Name = "GradeTextBox";
             GradeTextBox.Size = new Size(23, 23);
             GradeTextBox.TabIndex = 4;
-            GradeTextBox.TextChanged += this.GradeTextBox_TextChanged;
+            GradeTextBox.TextChanged += GradeTextBox_TextChanged;
             // 
             // AgeLabel
             // 
@@ -120,7 +120,7 @@
             AgeTextBox.Name = "AgeTextBox";
             AgeTextBox.Size = new Size(23, 23);
             AgeTextBox.TabIndex = 2;
-            AgeTextBox.TextChanged += this.AgeTextBox_TextChanged;
+            AgeTextBox.TextChanged += AgeTextBox_TextChanged;
             // 
             // MathProblemGroupBox
             // 
@@ -152,7 +152,7 @@
             StudentAnswerTextBox.Name = "StudentAnswerTextBox";
             StudentAnswerTextBox.Size = new Size(132, 23);
             StudentAnswerTextBox.TabIndex = 4;
-            StudentAnswerTextBox.TextChanged += this.StudentAnswerTextBox_TextChanged;
+            StudentAnswerTextBox.TextChanged += StudentAnswerTextBox_TextChanged;
             // 
             // SecondNumberLabel
             // 
@@ -168,8 +168,10 @@
             SecondNumberTextBox.Location = new Point(6, 102);
             SecondNumberTextBox.Name = "SecondNumberTextBox";
             SecondNumberTextBox.ReadOnly = true;
+            SecondNumberTextBox.ShortcutsEnabled = false;
             SecondNumberTextBox.Size = new Size(132, 23);
             SecondNumberTextBox.TabIndex = 2;
+            SecondNumberTextBox.TabStop = false;
             // 
             // FirstNumberLabel
             // 
@@ -187,6 +189,7 @@
             FirstNumberTextBox.ReadOnly = true;
             FirstNumberTextBox.Size = new Size(132, 23);
             FirstNumberTextBox.TabIndex = 0;
+            FirstNumberTextBox.TabStop = false;
             // 
             // MathTypeGroupBox
             // 
@@ -258,6 +261,7 @@
             SubmitButton.TabIndex = 8;
             SubmitButton.Text = "Submit";
             SubmitButton.UseVisualStyleBackColor = true;
+            SubmitButton.Click += SubmitButton_Click;
             // 
             // ClearButton
             // 
@@ -279,6 +283,7 @@
             SummaryButton.TabIndex = 10;
             SummaryButton.Text = "Summary";
             SummaryButton.UseVisualStyleBackColor = true;
+            SummaryButton.Click += SummaryButton_Click;
             // 
             // ExitButton
             // 
