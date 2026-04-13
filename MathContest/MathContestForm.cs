@@ -20,10 +20,9 @@ namespace MathContest
         int submitNumber = 0;
         int correctAnswers = 0;
         int correctNumber = 0;
-        
+        //Custom Methods Below-----------------------------------------------------------
         void SetDefaults()
         {
-
             submitNumber = 0;
             correctAnswers = 0;
             correctNumber = 0;
@@ -42,10 +41,17 @@ namespace MathContest
             MathProblemGroupBox.Enabled = false;
         }
 
-        private bool ValidateFields()
+        //This method validates our Math Contest form with four fields and
+        //enables/disables different feilds based on the results.
+        //What it validates:
+        //Name — must not be empty.
+        //Age — must be a valid integer between 7 and 11.
+        //Grade — must be a valid integer between 1 and 4.
+        //Student Answer — must not be empty
+        void ValidateFields()
         {
             bool valid = true;
-            if (NameTextBox.Text == "")
+            if (string.IsNullOrEmpty(NameTextBox.Text.Trim()))
             {
                 valid = false;
                 NameTextBox.BackColor = Color.LightYellow;
@@ -74,16 +80,20 @@ namespace MathContest
             {
                 GradeTextBox.BackColor = Color.White;
             }
-            if (StudentAnswerTextBox.Text != "")
+            if (StudentAnswerTextBox.Enabled)
             {
-                StudentAnswerTextBox.BackColor = Color.White;
+                if (StudentAnswerTextBox.Text != "")
+                {
+                    StudentAnswerTextBox.BackColor = Color.White;
+                }
+                else
+                {
+                    valid = false;
+                    StudentAnswerTextBox.BackColor = Color.LightYellow;
+                }
             }
-            else
-            {
-                valid = false;
-                StudentAnswerTextBox.BackColor = Color.LightYellow;
-            }
-            if (valid = true)
+
+            if (valid)
             {
                 if (!MathProblemGroupBox.Enabled)
                 {
@@ -94,35 +104,17 @@ namespace MathContest
                     MathProblems();
                 }
             }
-            else
-            {
-                SubmitButton.Enabled = false;
-                MathProblemGroupBox.Enabled = false;
-                StudentAnswerTextBox.Enabled = false;
-                StudentAnswerLabel.Enabled = false;
-            }
-            return valid;
         }
-
-        private void SubmitButtonEnable()
-        {
-            if (ValidateFields())
-            {
-                SubmitButton.Enabled = true;
-            }
-            else
-            {
-                SubmitButton.Enabled = false;
-            }
-        }
+        //Creates random numbers for math problems
         private void RandomNumberGenerator()
         {
             Random random = new Random();
-            int firstNumber = random.Next(1, 20);
+            int firstNumber = random.Next(1, 21);
             FirstNumberTextBox.Text = firstNumber.ToString();
-            int secondNumber = random.Next(1, 20);
+            int secondNumber = random.Next(1, 21);
             SecondNumberTextBox.Text = secondNumber.ToString();
         }
+        //Does the math for the created random numbers to compare to student answer later
         void MathProblems()
         {
             int firsNumber = int.Parse(FirstNumberTextBox.Text);
@@ -145,6 +137,8 @@ namespace MathContest
             }
         }
 
+        //Event Handlers Below-----------------------------------------------------------
+        
         private void ExitButton_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -163,7 +157,7 @@ namespace MathContest
             }
             else
             {
-                SubmitButtonEnable();
+                ValidateFields();
             }
         }
 
@@ -175,7 +169,7 @@ namespace MathContest
             }
             else
             {
-                SubmitButtonEnable();
+                ValidateFields();
             }
         }
 
@@ -187,13 +181,13 @@ namespace MathContest
             }
             else
             {
-                SubmitButtonEnable();
+                ValidateFields();
             }
         }
 
         private void StudentAnswerTextBox_TextChanged(object sender, EventArgs e)
         {
-            SubmitButtonEnable();
+            ValidateFields();
         }
 
         private void SubmitButton_Click(object sender, EventArgs e)
