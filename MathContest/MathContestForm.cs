@@ -5,6 +5,8 @@ Spring Semester 2026
 MathContest
 https://github.com/abeldoyl/MathContest.git
 */
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 namespace MathContest
 {
     public partial class MathContestForm : Form
@@ -21,6 +23,10 @@ namespace MathContest
         
         void SetDefaults()
         {
+
+            submitNumber = 0;
+            correctAnswers = 0;
+            correctNumber = 0;
             NameTextBox.Text = "";
             NameTextBox.BackColor = Color.LightYellow;
             AgeTextBox.Text = "";
@@ -33,6 +39,7 @@ namespace MathContest
             SubmitButton.Enabled = false;
             SummaryButton.Enabled = false;
             RandomNumberGenerator();
+            MathProblemGroupBox.Enabled = false;
         }
 
         private bool ValidateFields()
@@ -40,46 +47,32 @@ namespace MathContest
             bool valid = true;
             if (NameTextBox.Text != "")
             {
-                NameTextBox.BackColor = Color.White;
+                valid = false;
+                NameTextBox.BackColor = Color.LightYellow;
             }
             else
             {
-                NameTextBox.BackColor = Color.LightYellow;
+                NameTextBox.BackColor = Color.White;
+            }
+            int age;
+            if (!int.TryParse(AgeTextBox.Text.Trim(), out age) || age < 7 || age > 11)
+            {
                 valid = false;
-            }
-            try
-            {
-                if (int.Parse(AgeTextBox.Text) >= 7 && int.Parse(AgeTextBox.Text) <= 11)
-                {
-                    AgeTextBox.BackColor = Color.White;
-                }
-                else
-                {
-                    AgeTextBox.BackColor = Color.LightYellow;
-                    valid = false;
-                }
-            }
-            catch (Exception)
-            {
                 AgeTextBox.BackColor = Color.LightYellow;
+            }
+            else
+            {
+                AgeTextBox.BackColor = Color.White;
+            }
+            int grade;
+            if (!int.TryParse(GradeTextBox.Text.Trim(), out grade) || grade < 1 || grade > 4)
+            {
+                GradeTextBox.BackColor = Color.White;
+            }
+            else
+            {
                 valid = false;
-            }
-            try
-            {
-                if (int.Parse(GradeTextBox.Text) >= 1 && int.Parse(GradeTextBox.Text) <= 4)
-                {
-                    GradeTextBox.BackColor = Color.White;
-                }
-                else
-                {
-                    GradeTextBox.BackColor = Color.LightYellow;
-                    valid = false;
-                }
-            }
-            catch (Exception)
-            {
                 GradeTextBox.BackColor = Color.LightYellow;
-                valid = false;
             }
             if (StudentAnswerTextBox.Text != "")
             {
@@ -87,8 +80,8 @@ namespace MathContest
             }
             else
             {
-                StudentAnswerTextBox.BackColor = Color.LightYellow;
                 valid = false;
+                StudentAnswerTextBox.BackColor = Color.LightYellow;
             }
             return valid;
         }
