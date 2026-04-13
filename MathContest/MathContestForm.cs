@@ -45,7 +45,7 @@ namespace MathContest
         private bool ValidateFields()
         {
             bool valid = true;
-            if (NameTextBox.Text != "")
+            if (NameTextBox.Text == "")
             {
                 valid = false;
                 NameTextBox.BackColor = Color.LightYellow;
@@ -67,12 +67,12 @@ namespace MathContest
             int grade;
             if (!int.TryParse(GradeTextBox.Text.Trim(), out grade) || grade < 1 || grade > 4)
             {
-                GradeTextBox.BackColor = Color.White;
+                valid = false;
+                GradeTextBox.BackColor = Color.LightYellow;
             }
             else
             {
-                valid = false;
-                GradeTextBox.BackColor = Color.LightYellow;
+                GradeTextBox.BackColor = Color.White;
             }
             if (StudentAnswerTextBox.Text != "")
             {
@@ -82,6 +82,24 @@ namespace MathContest
             {
                 valid = false;
                 StudentAnswerTextBox.BackColor = Color.LightYellow;
+            }
+            if (valid = true)
+            {
+                if (!MathProblemGroupBox.Enabled)
+                {
+                    MathProblemGroupBox.Enabled = true;
+                    StudentAnswerTextBox.Enabled = true;
+                    StudentAnswerLabel.Enabled = true;
+                    SubmitButton.Enabled = true;
+                    MathProblems();
+                }
+            }
+            else
+            {
+                SubmitButton.Enabled = false;
+                MathProblemGroupBox.Enabled = false;
+                StudentAnswerTextBox.Enabled = false;
+                StudentAnswerLabel.Enabled = false;
             }
             return valid;
         }
